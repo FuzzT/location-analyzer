@@ -1,4 +1,4 @@
-const BASE_URL = "http://localhost:8080/locations"; // got to change this if deployed
+const BASE_URL = "https://location-analyzer.onrender.com/locations";
 
 function fetchData(endpoint) {
     fetch(`${BASE_URL}/${endpoint}`)
