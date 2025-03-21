@@ -12,7 +12,12 @@ function displayData(endpoint, data) {
     output.innerHTML = `<h3>${formatTitle(endpoint)}</h3>`;
 
     if (Array.isArray(data)) {
-        output.innerHTML += `<pre>${JSON.stringify(data, null, 2)}</pre>`;
+        if(data.length === 0){
+            output.innerHTML += `<p>No incomplete data found.</p>`;
+        }
+        else{
+            output.innerHTML += `<pre>${JSON.stringify(data, null, 2)}</pre>`;
+        }
     } else {
         Object.keys(data).forEach(key => {
             output.innerHTML += `<p><b>${key}:</b> ${data[key]}</p>`;
