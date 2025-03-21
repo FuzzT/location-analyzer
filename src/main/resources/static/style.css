@@ -1,0 +1,7 @@
+body {
+    font-family: 'Arial', sans-serif;
+}
+
+#output {
+    min-height: 100px;
+}
