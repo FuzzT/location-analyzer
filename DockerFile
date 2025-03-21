@@ -1,12 +1,12 @@
 # Stage 1: Build Stage
-FROM openjdk:17-jdk AS build
+FROM maven:3.8.4-openjdk-17 AS build
 WORKDIR /Location_API
 
 # Copy project files
 COPY pom.xml .
 COPY src src
 
-# Build the application using Maven (without installing Maven globally)
+# Build the application using Maven
 RUN mvn clean package -DskipTests
 
 # Stage 2: Run Stage
