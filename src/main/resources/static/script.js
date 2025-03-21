@@ -1,4 +1,4 @@
-const BASE_URL = "http://localhost:8080/locations"; // Change this if deployed
+const BASE_URL = "http://localhost:8080/locations"; // got to change this if deployed
 
 function fetchData(endpoint) {
     fetch(`${BASE_URL}/${endpoint}`)
