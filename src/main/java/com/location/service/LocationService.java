@@ -86,4 +86,17 @@ public class LocationService {
                 .filter(LocationService::hasIncompleteData)
                 .collect(Collectors.toList());
     }
+
+    public double getCombinedAverage(String type1, String type2) {
+        List<MergedLocation> filtered = mergedData.stream()
+                .filter(loc -> loc.getType() != null && loc.getRating() != null)
+                .filter(loc -> loc.getType().equalsIgnoreCase(type1) || loc.getType().equalsIgnoreCase(type2))
+                .toList();
+
+        if (filtered.isEmpty()) return 0.0;
+
+        double total = filtered.stream().mapToDouble(MergedLocation::getRating).sum();
+        return total / filtered.size();
+    }
+
 }

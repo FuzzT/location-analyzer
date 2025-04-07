@@ -36,4 +36,9 @@ public class LocationController {
     public List<MergedLocation> incompleteData() {
         return locationService.getIncompleteData();
     }
+
+    @GetMapping("/combined-average-rating")
+    public double getCombinedAverageRating(@RequestParam String type1, @RequestParam String type2) {
+        return locationService.getCombinedAverage(type1, type2);
+    }
 }

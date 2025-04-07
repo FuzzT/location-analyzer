@@ -28,3 +28,17 @@ function displayData(endpoint, data) {
 function formatTitle(endpoint) {
     return endpoint.replace(/-/g, ' ').toUpperCase();
 }
+
+function fetchCombinedAverage() {
+    const type1 = document.getElementById("type1").value;
+    const type2 = document.getElementById("type2").value;
+
+    fetch(`${BASE_URL}/combined-average-rating?type1=${type1}&type2=${type2}`)
+        .then(response => response.json())
+        .then(data => {
+            const output = document.getElementById("output");
+            output.innerHTML = `<h3>Combined Average Rating</h3>
+                                <p><b>${type1}</b> + <b>${type2}</b> → <strong>${data.toFixed(2)}</strong></p>`;
+        })
+        .catch(error => console.error("Error fetching combined average rating:", error));
+}
